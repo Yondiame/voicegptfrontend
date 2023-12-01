@@ -19,7 +19,7 @@ function App() {
     });
 
       authCoookieVal &&
-       fetch("https://tl66le4fdc5n3exuvyopygfyaq0ddvmn.lambda-url.eu-west-2.on.aws",{method: "POST", body:JSON.stringify({oauthCode: authCoookieVal})}).then(r => {
+       fetch("/api/voicegptauth",{method: "POST", body:JSON.stringify({oauthCode: authCoookieVal})}).then(r => {
               setAuthCookieState(authCoookieVal ?? null);
         }).catch(e =>{console.error(e); alert("Could not login! Check internet or contact admin if problem persists.")})
   },[]);

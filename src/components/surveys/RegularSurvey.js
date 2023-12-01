@@ -53,7 +53,7 @@ function RegularSurvey() {
         const payLoad = {oauthCode, questions, additionalThoughts}
         setIsSubmitting(true)
 
-         fetch("https://ycwfx5u6r5bjnzvnsuv2rnpgmi0sosyb.lambda-url.eu-west-2.on.aws/ ",{method: "POST", body:JSON.stringify(payLoad)})
+         fetch("/api/voicegptprompt",{method: "POST", body:JSON.stringify(payLoad)})
          .then(r => {
             if (r.ok) r.json()
             .then(data => 
@@ -89,7 +89,7 @@ function RegularSurvey() {
         const oauthCode = retrieveCookie("voiceGPTAuthToken");
         const payLoad = {oauthCode, registrationEmail:registrationEmailRef.current.value}
         setIsSubmitting(true)
-         fetch("https://ycwfx5u6r5bjnzvnsuv2rnpgmi0sosyb.lambda-url.eu-west-2.on.aws/ ",{method: "POST", body:JSON.stringify(payLoad)})
+         fetch("/api/voicegptprompt",{method: "POST", body:JSON.stringify(payLoad)})
          .then(r => {
             if (r.ok) r.json()
             .then(data => 
@@ -125,7 +125,7 @@ function RegularSurvey() {
         const oauthCode = retrieveCookie("voiceGPTAuthToken");
         const payLoad = {oauthCode, furtherAdditionalThoughts}
         setIsSubmitting(true)
-        fetch("https://ycwfx5u6r5bjnzvnsuv2rnpgmi0sosyb.lambda-url.eu-west-2.on.aws/ ",{method: "POST", body:JSON.stringify(payLoad)})
+        fetch("/api/voicegptprompt",{method: "POST", body:JSON.stringify(payLoad)})
          .then(r => {
             if (r.ok) r.json()
             .then(data => 

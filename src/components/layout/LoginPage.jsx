@@ -9,7 +9,7 @@ const LoginPage = () => {
   const googleLogin = useGoogleLogin({
       flow: 'auth-code',
       onSuccess: async (codeResponse) => {
-        fetch("https://tl66le4fdc5n3exuvyopygfyaq0ddvmn.lambda-url.eu-west-2.on.aws",{method: "POST", body:JSON.stringify({oauthCode: codeResponse.code})}).then(r => {
+        fetch("/api/voicegptauth",{method: "POST", body:JSON.stringify({oauthCode: codeResponse.code})}).then(r => {
           const currentDate = new Date();
           currentDate.setMonth(currentDate.getMonth() + 6);
           setAuthCookieVal("voiceGPTAuthToken", codeResponse.code, currentDate)
